@@ -1,0 +1,12 @@
+.hover-underline:hover {
+    text-decoration: underline;
+  }
+
+  #searchh {
+    border-radius: 10px;
+    border-width: 2px;
+  }
+
+  .corona{
+    position: relative;
+  }

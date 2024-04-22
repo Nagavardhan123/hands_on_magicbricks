@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import './navbar.css';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import HomeIcon from '@mui/icons-material/Home';
 
 const Navbar = () => {
     return (<>
@@ -13,10 +15,145 @@ const Navbar = () => {
                   <button className="btn btn-danger dropdown-toggle border-danger" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Bangalore
                   </button>
-                  <div className="dropdown-menu" id="menu1" aria-labelledby="dropdownMenuButton">
-                    <a className="dropdown-item" href="#">Action</a>
-                    <a className="dropdown-item" href="#">Another action</a>
-                    <a className="dropdown-item" href="#">Something else here</a>
+                  <div className="dropdown-menu" id="menu1" aria-labelledby="dropdownMenuButton" style={{width: "50vw"}}>
+                    <div className='container-fluid'>
+                      <div className='row'>
+                        <div className='col-md-9 container-fluid'>
+                          <div className='row d-flex align-items-center justify-content-left'>
+                          <LocationOnIcon className="col-md-1" icon={LocationOnIcon} style={{backgroundColor:"white", height: "9%", width: "7%"}}/>
+                          <div className='col-md-2'>INDIA</div>
+                          </div>
+                          <div className='row'>
+                            <div className='col-md-12'>Near By cities</div>
+                          </div>
+                          <div className='row' style={{fontSize: "12px"}}>
+                            <div className='col-md-2'>
+                              <p>Bangalore -East</p>
+                            </div>
+                            <div className='col-md-2'>
+                              <p>Bangalore -West</p>
+                            </div>
+                            <div className='col-md-2'>
+                              <p>Bangalore -North</p>
+                            </div>
+                            <div className='col-md-2'>
+                              <p>Bangalore -South</p>
+                            </div>
+                            <div className='col-md-2'>
+                              <p>Bangalore -Central</p>
+                            </div>
+                          </div>
+                          <div className='row'>
+                            <div className='col-md-12'>Popular Cities</div>
+                          </div>
+                          <div className='row' style={{fontSize: "12px"}}>
+                            <div className='col-md-2'>
+                              <p>Ahmedabad</p>
+                            </div>
+                            <div className='col-md-2'>
+                              <p>Bangalore</p>
+                            </div>
+                            <div className='col-md-2'>
+                              <p>Chennai</p>
+                            </div>
+                            <div className='col-md-2'>
+                              <p>Gurgaon</p>
+                            </div>
+                            <div className='col-md-2'>
+                              <p>Hyderabad</p>
+                            </div>
+                          </div>
+                          <div className='row' style={{fontSize: "12px"}}>
+                            <div className='col-md-2'>
+                              <p>Indore</p>
+                            </div>
+                            <div className='col-md-2'>
+                              <p>Jaipur</p>
+                            </div>
+                            <div className='col-md-2'>
+                              <p>Kolkata</p>
+                            </div>
+                            <div className='col-md-2'>
+                              <p>Lucknow</p>
+                            </div>
+                            <div className='col-md-2'>
+                              <p>Mumbai</p>
+                            </div>
+                          </div>
+                          <div className='row' style={{fontSize: "12px"}}>
+                            <div className='col-md-2'>
+                              <p>Navi Mumbai</p>
+                            </div>
+                            <div className='col-md-2'>
+                              <p>New Delhi</p>
+                            </div>
+                            <div className='col-md-2'>
+                              <p>Noida</p>
+                            </div>
+                            <div className='col-md-2'>
+                              <p>Pune</p>
+                            </div>
+                            <div className='col-md-2'>
+                              <p>Thane</p>
+                            </div>
+                          </div>
+                          <div className='row'>
+                            <div className='col-md-12'>Other Cities</div>
+                          </div>
+                          <div className='row' style={{fontSize: "12px"}}>
+                            <div className='col-md-2'>
+                              <p>Agra</p>
+                            </div>
+                            <div className='col-md-2'>
+                              <p>Ahmednagar</p>
+                            </div>
+                            <div className='col-md-2'>
+                              <p>Allahabad</p>
+                            </div>
+                            <div className='col-md-2'>
+                              <p>Aluva</p>
+                            </div>
+                            <div className='col-md-2'>
+                              <p>Amritsar</p>
+                            </div>
+                          </div>
+                          <div className='row' style={{fontSize: "12px"}}>
+                            <div className='col-md-2'>
+                              <p>Hindupur</p>
+                            </div>
+                            <div className='col-md-2'>
+                              <p>Mangalore</p>
+                            </div>
+                            <div className='col-md-2'>
+                              <p>Kolar</p>
+                            </div>
+                            <div className='col-md-2'>
+                              <p>Chickabalapur</p>
+                            </div>
+                            <div className='col-md-2'>
+                              <p>Sasanakota</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className='col-md-3'>
+                          <div className='row'>
+                              <h6 className='col-md-12'>International</h6>
+                          </div>
+                          <div className='row'>
+                            <div>&rarr; NRI Home</div>
+                          </div>
+                          <div className='row'>
+                            <div>&rarr; UAE</div>
+                          </div>
+                          <div className='row'>
+                            <div>&rarr; AMERICA</div>
+                          </div>
+                          <div className='row'>
+                            <div>&rarr; UK</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -30,9 +167,19 @@ const Navbar = () => {
                     MB Prime
                   </button>
                   <div className="dropdown-menu " aria-labelledby="dropdownMenuButton">
-                    <a className="dropdown-item" href="#">Action</a>
-                    <a className="dropdown-item" href="#">Another action</a>
-                    <a className="dropdown-item" href="#">Something else here</a>
+                    <div className='container-fluid text-white' style={{width: "25vw"}}>
+                      <div className='row bg-danger m-2' style={{borderRadius: "10px"}}>
+                        <div className='mt-3 d-flex align-items-center justify-content-center'>Introducing MB Prime</div>
+                        <div className='mb-3 d-flex align-items-center justify-content-center'>Pay Zero Comission | Save Time & Money</div>
+                      </div>
+                      <div className='row text-black'>
+                        <p className=' d-flex align-items-center justify-content-center'>&#x2714; Contact upto 30 Owners directly</p>
+                        <p className=' d-flex align-items-center justify-content-center'>&#x2714; Access to Prime Exclusive Properties</p>
+                      </div>
+                      <div className='row'>
+                        <button className='bg-danger border border-none text-white' style={{borderRadius:"15px"}}>Join Now</button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -44,9 +191,26 @@ const Navbar = () => {
                   Login
                   </button>
                   <div className="dropdown-menu" id="menu1" aria-labelledby="dropdownMenuButton">
-                    <a className="dropdown-item" href="#">Action</a>
-                    <a className="dropdown-item" href="#">Another action</a>
-                    <a className="dropdown-item" href="#">Something else here</a>
+                    <div className='container-fluid' style={{width: "15vw"}}>
+                        <div className='row'>
+                          <h6>My Activity</h6>
+                        </div>
+                        <div className='row' style={{opacity: 0.7}}>
+                          <h6>Requested Properties</h6>
+                        </div>
+                        <div className='row' style={{opacity: 0.7}}>
+                          <h6>Contacted Properties</h6>
+                        </div>
+                        <div className='row' style={{opacity: 0.7}}>
+                          <h6>Viewed Properties</h6>
+                        </div>
+                        <div className='row' style={{opacity: 0.7}}>
+                          <h6>Short Listed Properties</h6>
+                        </div>
+                        <div className='row' style={{opacity: 0.7}}>
+                          <h6>Searches</h6>
+                        </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -163,3 +327,8 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
+
+
+
