@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import './navbar.css';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import HomeIcon from '@mui/icons-material/Home';
+// import HomeIcon from '@mui/icons-material/Home';
 
 const Navbar = () => {
     return (<>
@@ -228,10 +228,34 @@ const Navbar = () => {
                   <button className="btn btn-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Buy
                   </button>
-                  <div className="dropdown-menu" id="menu1" aria-labelledby="dropdownMenuButton">
-                    <a className="dropdown-item" href="#">Action</a>
-                    <a className="dropdown-item" href="#">Another action</a>
-                    <a className="dropdown-item" href="#">Something else here</a>
+                  <div className="dropdown-menu" id="menu1" aria-labelledby="dropdownMenuButton" style={{width: "50vw"}}>
+                    <div className='container-fluid'>
+                      <div className='row'>
+                        <div className='col-md-12 container-fluid'>
+                          <div className='row d-flex align-items-center justify-content-center font-weight-bold"'>
+                            <div className='col-md-3'>Popular Choices</div>
+                            <div className='col-md-3'>Property Types</div>
+                            <div className='col-md-2'>Budget</div>
+                            <div className='col-md-2'>Explore</div>
+                            <div className='col-md-2'>Buying Tools</div>
+                          </div>
+                          <div className='row d-flex align-items-center justify-content-left'>
+                            <div className='col-md-3'><hr/></div>
+                            <div className='col-md-3'><hr/></div>
+                            <div className='col-md-2'><hr/></div>
+                            <div className='col-md-2'><hr/></div>
+                            <div className='col-md-2'><hr/></div>
+                          </div>
+                          <div className='row d-flex align-items-center justify-content-left' style={{fontSize: "12px"}}>
+                            <div className='col-md-3'>Ready to Moe</div>
+                            <div className='col-md-3'>Flats in Bangalore</div>
+                            <div className='col-md-2'>Under 50 Lac</div>
+                            <div className='col-md-2'>Localities in Bangalore</div>
+                            <div className='col-md-2'>Propworth</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -242,10 +266,31 @@ const Navbar = () => {
                   <button className="btn btn-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Rent
                   </button>
-                  <div className="dropdown-menu" id="menu1" aria-labelledby="dropdownMenuButton">
-                    <a className="dropdown-item" href="#">Action</a>
-                    <a className="dropdown-item" href="#">Another action</a>
-                    <a className="dropdown-item" href="#">Something else here</a>
+                  <div className="dropdown-menu" id="menu1" aria-labelledby="dropdownMenuButton" style={{width: "50vw"}}>
+                    <div className='container-fluid'>
+                      <div className='row'>
+                        <div className='col-md-12 container-fluid'>
+                          <div className='row d-flex align-items-center justify-content-center font-weight-bold"'>
+                            <div className='col-md-3'>Popular Choices</div>
+                            <div className='col-md-3'>Property Types</div>
+                            <div className='col-md-3'>Budget</div>
+                            <div className='col-md-3'>Explore</div>
+                          </div>
+                          <div className='row d-flex align-items-center justify-content-left'>
+                            <div className='col-md-3'><hr/></div>
+                            <div className='col-md-3'><hr/></div>
+                            <div className='col-md-3'><hr/></div>
+                            <div className='col-md-3'><hr/></div>
+                          </div>
+                          <div className='row d-flex align-items-center justify-content-left' style={{fontSize: "12px"}}>
+                            <div className='col-md-3'>Ready to Moe</div>
+                            <div className='col-md-3'>Flats in Bangalore</div>
+                            <div className='col-md-3'>Under 50 Lac</div>
+                            <div className='col-md-3'>Localities in Bangalore</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -256,10 +301,28 @@ const Navbar = () => {
                   <button className="btn btn-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Sell
                   </button>
-                  <div className="dropdown-menu" id="menu1" aria-labelledby="dropdownMenuButton">
-                    <a className="dropdown-item" href="#">Action</a>
-                    <a className="dropdown-item" href="#">Another action</a>
-                    <a className="dropdown-item" href="#">Something else here</a>
+                  <div className="dropdown-menu" id="menu1" aria-labelledby="dropdownMenuButton" style={{width: "50vw"}}>
+                    <div className='container-fluid'>
+                      <div className='row'>
+                        <div className='col-md-12 container-fluid'>
+                          <div className='row d-flex align-items-center justify-content-center font-weight-bold"'>
+                            <div className='col-md-4'>For Owner</div>
+                            <div className='col-md-4'>For Agent & Builder</div>
+                            <div className='col-md-4'>Selling Tools</div>
+                          </div>
+                          <div className='row d-flex align-items-center justify-content-left'>
+                            <div className='col-md-4'><hr/></div>
+                            <div className='col-md-4'><hr/></div>
+                            <div className='col-md-4'><hr/></div>
+                          </div>
+                          <div className='row d-flex align-items-center justify-content-left' style={{fontSize: "12px"}}>
+                            <div className='col-md-4'>Ready to Moe</div>
+                            <div className='col-md-4'>Flats in Bangalore</div>
+                            <div className='col-md-4'>Under 50 Lac</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -270,10 +333,34 @@ const Navbar = () => {
                   <button className="btn btn-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Home Loans
                   </button>
-                  <div className="dropdown-menu" id="menu1" aria-labelledby="dropdownMenuButton">
-                    <a className="dropdown-item" href="#">Action</a>
-                    <a className="dropdown-item" href="#">Another action</a>
-                    <a className="dropdown-item" href="#">Something else here</a>
+                  <div className="dropdown-menu" id="menu1" aria-labelledby="dropdownMenuButton" style={{width: "50vw"}}>
+                    <div className='container-fluid'>
+                      <div className='row'>
+                        <div className='col-md-12 container-fluid'>
+                          <div className='row d-flex align-items-center justify-content-center font-weight-bold"'>
+                            <div className='col-md-3'>Apply Now</div>
+                            <div className='col-md-3'>Partners</div>
+                            <div className='col-md-2'>Explore</div>
+                            <div className='col-md-2'>EMI Calculators</div>
+                            <div className='col-md-2'>Interest Rates</div>
+                          </div>
+                          <div className='row d-flex align-items-center justify-content-left'>
+                            <div className='col-md-3'><hr/></div>
+                            <div className='col-md-3'><hr/></div>
+                            <div className='col-md-2'><hr/></div>
+                            <div className='col-md-2'><hr/></div>
+                            <div className='col-md-2'><hr/></div>
+                          </div>
+                          <div className='row d-flex align-items-center justify-content-left' style={{fontSize: "12px"}}>
+                            <div className='col-md-3'>Ready to Moe</div>
+                            <div className='col-md-3'>Flats in Bangalore</div>
+                            <div className='col-md-2'>Under 50 Lac</div>
+                            <div className='col-md-2'>Localities in Bangalore</div>
+                            <div className='col-md-2'>Propworth</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -284,10 +371,28 @@ const Navbar = () => {
                   <button className="btn btn-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Property Services
                   </button>
-                  <div className="dropdown-menu" id="menu1" aria-labelledby="dropdownMenuButton">
-                    <a className="dropdown-item" href="#">Action</a>
-                    <a className="dropdown-item" href="#">Another action</a>
-                    <a className="dropdown-item" href="#">Something else here</a>
+                  <div className="dropdown-menu" id="menu1" aria-labelledby="dropdownMenuButton" style={{width: "40vw"}}>
+                    <div className='container-fluid'>
+                      <div className='row'>
+                        <div className='col-md-12 container-fluid'>
+                          <div className='row d-flex align-items-center justify-content-center font-weight-bold"'>
+                            <div className='col-md-4'>Rent Services</div>
+                            <div className='col-md-4'>Buy/Sell Services</div>
+                            <div className='col-md-4'>Home Services</div>
+                          </div>
+                          <div className='row d-flex align-items-center justify-content-left'>
+                            <div className='col-md-4'><hr/></div>
+                            <div className='col-md-4'><hr/></div>
+                            <div className='col-md-4'><hr/></div>
+                          </div>
+                          <div className='row d-flex align-items-center justify-content-left' style={{fontSize: "12px"}}>
+                            <div className='col-md-4'>Ready to Moe</div>
+                            <div className='col-md-4'>Flats in Bangalore</div>
+                            <div className='col-md-4 text-danger'>View all Services &rarr;</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -298,10 +403,31 @@ const Navbar = () => {
                   <button className="btn btn-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     MB Advice <span style={{backgroundColor: "orange", borderRadius: "2px", fontSize: "10px"}}>NEW</span>
                   </button>
-                  <div className="dropdown-menu" id="menu1" aria-labelledby="dropdownMenuButton">
-                    <a className="dropdown-item" href="#">Action</a>
-                    <a className="dropdown-item" href="#">Another action</a>
-                    <a className="dropdown-item" href="#">Something else here</a>
+                  <div className="dropdown-menu" id="menu1" aria-labelledby="dropdownMenuButton" style={{width: "30vw"}}>
+                    <div className='container'>
+                      <div className='row'>
+                        <div className='col-md-12 container-fluid'>
+                          <div className='row d-flex align-items-center justify-content-center font-weight-bold"'>
+                            <div className='col-md-3'>MB Research</div>
+                            <div className='col-md-3'>Serices and Tools</div>
+                            <div className='col-md-3'>Localities & Projects</div>
+                            <div className='col-md-3'>News & Blogs</div>
+                          </div>
+                          <div className='row d-flex align-items-center justify-content-left'>
+                            <div className='col-md-3'><hr/></div>
+                            <div className='col-md-3'><hr/></div>
+                            <div className='col-md-3'><hr/></div>
+                            <div className='col-md-3'><hr/></div>
+                          </div>
+                          <div className='row d-flex align-items-center justify-content-left' style={{fontSize: "12px"}}>
+                            <div className='col-md-3'>Ready to Move</div>
+                            <div className='col-md-3'>Flats in Bangalore</div>
+                            <div className='col-md-3'>Under 50 Lac</div>
+                            <div className='col-md-3'>Localities in Bangalore</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -313,9 +439,8 @@ const Navbar = () => {
                     Help
                   </button>
                   <div className="dropdown-menu" id="menu1" aria-labelledby="dropdownMenuButton">
-                    <a className="dropdown-item" href="#">Action</a>
-                    <a className="dropdown-item" href="#">Another action</a>
-                    <a className="dropdown-item" href="#">Something else here</a>
+                    <a className="dropdown-item" href="#">Help Center</a>
+                    <a className="dropdown-item" href="#">Sales Enquiry</a>
                   </div>
                 </div>
               </div>

@@ -31,3 +31,15 @@ a{
 .text-with-shadow{
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
+
+.btt {
+    position: absolute;
+    bottom: 30%;
+    left: 80%;
+    transform: translateX(-50%);
+    visibility: hidden;
+}
+    
+.zoom-in-image:hover .btt {
+    visibility: visible;
+}
