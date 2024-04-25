@@ -3,6 +3,7 @@ import Footer from '../components/Footer';
 import SearchBar from '../components/SearchBar';
 import Cards from '../components/Cards';
 import Boody from '../components/body';
+
 function Home() {
   return (<>
             <div className="container-fluid">

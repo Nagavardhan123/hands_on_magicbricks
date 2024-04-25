@@ -32,14 +32,24 @@ a{
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.btt {
+.btt1 {
     position: absolute;
     bottom: 30%;
     left: 80%;
     transform: translateX(-50%);
     visibility: hidden;
 }
+.btt {
+    position: absolute;
+    bottom: 30%;
+    left: 20%;
+    transform: translateX(-50%);
+    visibility: hidden;
+}
     
 .zoom-in-image:hover .btt {
+    visibility: visible;
+}
+.zoom-in-image:hover .btt1 {
     visibility: visible;
 }

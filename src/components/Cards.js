@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './cards.css';
 import image1 from "../images/image1.webp";
@@ -18,7 +19,7 @@ const Cards = () => {
             <div class="overlay-content text-with-shadow">
               <p>26709</p>
               <p>Owner Properties</p>
-              <a href="/" >Explore &rarr;</a>
+              <Link to="/property1" >Explore &rarr;</Link>
             </div>
           </div>
         </div>
@@ -28,7 +29,7 @@ const Cards = () => {
                 <div class="overlay-content text-with-shadow">
                   <p>998</p>
                   <p>Projects</p>
-                  <a href="/" >Explore &rarr;</a>
+                  <Link to="/property2" >Explore &rarr;</Link>
                 </div>
             </div>
         </div>
@@ -38,7 +39,7 @@ const Cards = () => {
                 <div class="overlay-content text-with-shadow">
                   <p>21792</p>
                   <p>Ready to move-in</p>
-                  <a href="/" >Explore &rarr;</a>
+                  <Link to="/property3" >Explore &rarr;</Link>
                 </div>
             </div>
         </div>
