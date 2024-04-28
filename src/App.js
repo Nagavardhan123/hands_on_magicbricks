@@ -31,12 +31,14 @@ import S3_7 from './components/property/property3card7';
 import S3_8 from './components/property/property3card8';
 import Card1 from './components/DSRcards/card1';
 import Card2 from './components/DSRcards/card2';
+import LoginPage from './screens/Login';
 
 function App() {
   return (
     <Router>
       <Routes path="/">
-        <Route index element={<Home />} />
+        <Route index element={<LoginPage />} />
+        <Route path='/Home' element={<Home />} />
         <Route path='/property1' element={<S1 />} />
         <Route path='/property1/property1card1' element={<S1_1 />} />
         <Route path='/property1/property1card2' element={<S1_2 />} />

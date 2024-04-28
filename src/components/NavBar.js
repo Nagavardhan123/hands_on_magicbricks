@@ -8,7 +8,7 @@ const Navbar = () => {
       <nav className="navbar navbar-expand-lg">
         <div className="container-fluid bg-danger">
           <div className='d-flex align-items-center justify-content-left' style={{height: "50px", marginLeft: "100px"}}>
-            <Link className="navbar-brand text-lowercase custom-font-size fw-bold text-white" to="/" >magicbricks</Link>
+            <Link className="navbar-brand text-lowercase custom-font-size fw-bold text-white" to="/Home" >magicbricks</Link>
             <Link className="nav-link text-white" to="#" style={{marginLeft:"20px", fontSize:"18px"}}>
               <div className="container">
                 <div className="dropdown">
