@@ -7,8 +7,7 @@ const LoginPage = () => {
   const [loggedIn, setLoggedIn] = useState(false);
 
   const handleLogin = () => {
-    // Check if username and password are correct (you can replace this with your own authentication logic)
-    if (username === 'admin' && password === 'pass') {
+    if (username === 'nagvardhan99@gmail.com' && password === 'Naga@123') {
       setLoggedIn(true);
       alert('Login successful!');
     } else {
