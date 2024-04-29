@@ -9,7 +9,6 @@ const LoginPage = () => {
   const handleLogin = () => {
     if (username === 'nagvardhan99@gmail.com' && password === 'Naga@123') {
       setLoggedIn(true);
-      alert('Login successful!');
     } else {
       alert('Invalid username or password. Please try again.');
     }
@@ -34,17 +33,29 @@ const LoginPage = () => {
       {loggedIn ? (
         <Home username={username} handleLogout={handleLogout} />
       ) : (
-        <div>
-          <h1>Login</h1>
-          <div>
-            <label>Username:</label>
-            <input type="text" value={username} onChange={handleChangeUsername} />
-          </div>
-          <div>
-            <label>Password:</label>
-            <input type="password" value={password} onChange={handleChangePassword} />
-          </div>
-          <button onClick={handleLogin}>Login</button>
+        <div class="container">
+            <form action="/action_page.php">
+            <div class="row">
+                <div class="col-25">
+                <label>Username:</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" value={username} onChange={handleChangeUsername} />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                <label>Password:</label>
+                </div>
+                <div class="col-75">
+                <input type="password" value={password} onChange={handleChangePassword} />
+                </div>
+            </div>
+            <br/>
+            <div class="row">
+            <button onClick={handleLogin}>Login</button>
+            </div>
+            </form>
         </div>
       )}
     </div>
