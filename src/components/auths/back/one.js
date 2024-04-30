@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect("mongodb://127.0.0.1:27017/shopy_ecom");      //need to change the URL
+mongoose.connect("mongodb://127.0.0.1:27017/users");      //need to change the URL
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
