@@ -210,7 +210,7 @@ const Navbar = () => {
                           <h6>Searches</h6>
                         </div>
                         <div className='row d-flex align-items-center justify-content-center'>
-                          <Link className='bg-danger w-50' style={{borderRadius:"1vw"}} to='/'> &nbsp;&nbsp;&nbsp;&nbsp;LogOut</Link>
+                          <Link className='bg-danger w-50' style={{borderRadius:"1vw"}} to='/'> &nbsp;&nbsp;&nbsp;&nbsp;Logut</Link>
                         </div>
                     </div>
                   </div>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Home from './Home';
+import { Container, Form, Button } from 'react-bootstrap';
 
 const LoginPage = () => {
   const [username, setUsername] = useState('');
@@ -14,12 +15,6 @@ const LoginPage = () => {
     }
   };
 
-  const handleLogout = () => {
-    setLoggedIn(false);
-    setUsername('');
-    setPassword('');
-  };
-
   const handleChangeUsername = (event) => {
     setUsername(event.target.value);
   };
@@ -31,32 +26,34 @@ const LoginPage = () => {
   return (
     <div>
       {loggedIn ? (
-        <Home username={username} handleLogout={handleLogout} />
+        <Home/>
       ) : (
-        <div class="container">
-            <form action="">
-            <div class="row">
-                <div class="col-25">
-                <label>Username:</label>
-                </div>
-                <div class="col-75">
-                    <input type="text" value={username} onChange={handleChangeUsername} />
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-25">
-                <label>Password:</label>
-                </div>
-                <div class="col-75">
-                <input type="password" value={password} onChange={handleChangePassword} />
-                </div>
-            </div>
-            <br/>
-            <div class="row">
-            <button onClick={handleLogin} style={{width:"50%"}}>Login</button>
-            </div>
-            </form>
-        </div>
+        <Container className="container border border-black" style={{margin:"10vw 25vw", width:"50%", borderRadius:"2vw", padding:"2vw"}}>
+          <h2>Login</h2>
+          <Form>
+            <Form.Group controlId="formUsername">
+              <Form.Label>Username</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter username"
+                value={username}
+                onChange={handleChangeUsername}
+              />
+            </Form.Group>
+            <Form.Group controlId="formPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Enter password"
+                value={password}
+                onChange={handleChangePassword}
+              />
+            </Form.Group>
+            <Button variant="danger" onClick={handleLogin}>
+              Login
+            </Button>
+          </Form>
+        </Container>
       )}
     </div>
   );
