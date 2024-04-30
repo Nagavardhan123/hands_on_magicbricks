@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import './navbar.css';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-// import HomeIcon from '@mui/icons-material/Home';
 
 const Navbar = () => {
     return (<>
@@ -188,7 +187,7 @@ const Navbar = () => {
               <div className="container">
                 <div className="dropdown">
                   <button className="btn btn-danger dropdown-toggle border-danger" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Login
+                  Logout
                   </button>
                   <div className="dropdown-menu" id="menu1" aria-labelledby="dropdownMenuButton">
                     <div className='container-fluid' style={{width: "15vw"}}>
@@ -209,6 +208,9 @@ const Navbar = () => {
                         </div>
                         <div className='row' style={{opacity: 0.7}}>
                           <h6>Searches</h6>
+                        </div>
+                        <div className='row d-flex align-items-center justify-content-center'>
+                          <Link className='bg-danger w-50' style={{borderRadius:"1vw"}} to='/'> &nbsp;&nbsp;&nbsp;&nbsp;LogOut</Link>
                         </div>
                     </div>
                   </div>

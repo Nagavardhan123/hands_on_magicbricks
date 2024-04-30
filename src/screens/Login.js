@@ -34,7 +34,7 @@ const LoginPage = () => {
         <Home username={username} handleLogout={handleLogout} />
       ) : (
         <div class="container">
-            <form action="/action_page.php">
+            <form action="">
             <div class="row">
                 <div class="col-25">
                 <label>Username:</label>
@@ -53,7 +53,7 @@ const LoginPage = () => {
             </div>
             <br/>
             <div class="row">
-            <button onClick={handleLogin}>Login</button>
+            <button onClick={handleLogin} style={{width:"50%"}}>Login</button>
             </div>
             </form>
         </div>

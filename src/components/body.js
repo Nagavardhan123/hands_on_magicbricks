@@ -6,6 +6,7 @@ import CardSlider from '../components/slider';
 import CardSlider2 from "../components/slider2";
 import Paracomp from "./paracomp";
 import { Link } from "react-router-dom";
+import PopupVideo from '../components/youtube';
 
 const Boody = () => {
     return(
@@ -71,20 +72,10 @@ const Boody = () => {
                         <h4 className="row d-flex justify-content-center align-items-center">Locality Videos</h4>
                         <div className="row">
                             <div className="col-md-6 video-container d-flex justify-content-center align-items-center">
-                                <iframe
-                                style={{width: "8vw", height: "6vw", borderRadius: "1vw"}}
-                                title="Video 1"
-                                src="https://www.youtube.com/embed/Ng9RDfRfCGk"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                ></iframe>
+                                <PopupVideo videoUrl="https://www.youtube.com/embed/8zI_g-iZ4jQ" />
                             </div>
                             <div className="col-md-6 video-container d-flex justify-content-center align-items-center">
-                                <iframe
-                                style={{width: "8vw", height: "6vw", borderRadius: "1vw"}}
-                                title="Video 2"
-                                src="https://www.youtube.com/embed/VIDEO_ID_2"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                ></iframe>
+                                <PopupVideo videoUrl="https://www.youtube.com/embed/VIDEO_ID_2" />
                             </div>
                         </div>
                         <div className="row mb-4 p-3">
