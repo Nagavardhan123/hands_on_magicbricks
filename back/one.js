@@ -4,12 +4,15 @@ const cors = require("cors");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const MagicModel = require('./two');
+const multer = require("multer");
+const path = require("path");
 
 const JWT_SECRET_KEY = "123456789";
 
 const app = express();
 app.use(express.json());
 app.use(cors());
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 mongoose.connect("mongodb://localhost:27017/users");
 
@@ -27,6 +30,17 @@ const verifyToken = (req, res, next) => {
         next();
     });
 };
+// Configure multer storage
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, "./uploads/"); // Destination directory for storing uploaded images
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + "-" + file.originalname); // Unique filename for each uploaded image
+    }
+});
+// Create multer instance
+const upload = multer({ storage: storage });
 
 // Login endpoint
 app.post("/login", (req, res) => {
@@ -57,8 +71,9 @@ app.post("/login", (req, res) => {
         });
 });
 
-app.post("/register", (req, res) => {
+app.post("/register", upload.single("image"), (req, res) => {
     const { email, password } = req.body;
+    const image = req.file ? req.file.path : null; // Save image path if uploaded
     // Hash password using bcrypt
     bcrypt.hash(password, 10, (err, hash) => {
         if (err) {
@@ -72,8 +87,8 @@ app.post("/register", (req, res) => {
                     // If email exists, return an error response
                     return res.status(400).json("Email already exists");
                 } else {
-                    // Create new customer entry with hashed password
-                    MagicModel.create({ email, password: hash })
+                    // Create new customer entry with hashed password and Image path
+                    MagicModel.create({ email, password: hash, image })
                         .then(newCustomer => {
                             console.log("New customer registered:", newCustomer);
                             // Generate JWT token for the new customer
@@ -92,6 +107,23 @@ app.post("/register", (req, res) => {
             });
     });
 });
+app.get("/profile", verifyToken, (req, res) => {
+    const userEmail = req.user.email;
+    MagicModel.findOne({ email: userEmail })
+        .then(user => {
+            if (!user) {
+                return res.status(404).json("User not found");
+            }
+            // Construct the URL of the uploaded image
+            const imageUrl = user.image ? `${req.protocol}://${req.get("host")}/${user.image}` : null;
+            res.json({ image: imageUrl });
+        })
+        .catch(err => {
+            console.error("Error fetching profile image:", err);
+            res.status(500).json("Internal Server Error");
+        });
+});
+
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

@@ -7,21 +7,31 @@ import { useNavigate } from "react-router-dom";
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [image, setImage] = useState(null); // State to store the selected image file
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-        const response = await axios.post("http://localhost:5001/register", { email, password });
-        console.log(response.data);
+      const formData = new FormData();
+      formData.append("email", email);
+      formData.append("password", password);
+      formData.append("image", image); // Append image file to the form data
 
-        if (response.data.token) {
-            localStorage.setItem("token", response.data.token);
-            navigate("/Home");
-        } else {
-            navigate("/signin");
-        }
+      const response = await axios.post("http://localhost:5001/register", formData, {
+          headers: {
+              "Content-Type": "multipart/form-data" // Set content type to multipart/form-data for file upload
+          }
+      });
+      console.log(response.data);
+
+      if (response.data.token) {
+          localStorage.setItem("token", response.data.token);
+          navigate("/Home");
+      } else {
+          navigate("/signin");
+      }
     } catch (error) {
         if (error.response && error.response.status === 400) {
             if (error.response.data === "Email already exists") {
@@ -67,11 +77,14 @@ const Register = () => {
                           <label className="form-label" htmlFor="form3Example4c">Password</label>
                         </div>
                       </div>
-                      <div className="form-check d-flex justify-content-center mb-2">
-                        <input className="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
-                        <label className="form-check-label" htmlFor="form2Example3">
-                          I agree all statements in <a href="#!">Terms of service</a>
-                        </label>
+                      <div className="d-flex flex-row align-items-center mb-2">
+                        <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
+                        <div data-mdb-input-init className="form-outline flex-fill">
+                          <input type="file" value="" id="form2Example3c" className="form-control" onChange={(e) => setImage(e.target.files[0])}/>
+                          <label className="form-check-label" htmlFor="form2Example3">
+                            Upload Image
+                          </label>
+                        </div>
                       </div>
                       <div className="d-flex justify-content-center mx-2 mb-4 mb-lg-2">
                         <button type="submit" data-mdb-button-init data-mdb-ripple-init className="btn btn-primary btn-lg">Register</button>

@@ -1,8 +1,29 @@
 import { Link } from 'react-router-dom';
 import './navbar.css';
+import React, { useState, useEffect } from 'react';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import axios from "axios";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Navbar = () => {
+  const [profileImage, setProfileImage] = useState('');
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+            // Fetch profile image path if user is logged in
+            axios.get("http://localhost:5001/profile", { headers: { Authorization: token } })
+                .then(response => {
+                    console.log(response.data.image)
+                    setProfileImage(response.data.image);
+                })
+                .catch(error => {
+                    console.error("Error fetching profile image:", error);
+                });
+        }
+        else{
+          setProfileImage('');
+        }
+    }, []);
     return (<>
       <nav className="navbar navbar-expand-lg">
         <div className="container-fluid bg-danger">
@@ -217,9 +238,10 @@ const Navbar = () => {
                 </div>
               </div>
             </Link>
-            <div className="border p-2" style={{backgroundColor:"white", borderRadius: "20px", display: "inline", zIndex: 0, marginRight: "200px"}}>
+            <div className="border p-2" style={{backgroundColor:"white", borderRadius: "20px", display: "inline", zIndex: 0, marginRight: "150px"}}>
               <Link className="nav-link text-black" to="/" style={{display: "inline", opacity: 0.7}}> Post Property <span className="bg-warning" style={{ borderRadius: "1px", fontSize: "10px"}}>FREE</span> </Link>
             </div>
+            <div>{profileImage && <img  className="profile-image" src={profileImage} alt="Profile" style={{borderRadius:"50%", height:"45px", width:"45px", marginRight: "50px"}} />}</div>
           </div>
         </div>
       </nav>
@@ -318,7 +340,7 @@ const Navbar = () => {
                             <div className='col-md-4'><hr/></div>
                           </div>
                           <div className='row d-flex align-items-center justify-content-left' style={{fontSize: "12px"}}>
-                            <div className='col-md-4'>Ready to Moe</div>
+                            <div className='col-md-4'><Link to="/Owner" className='text-black'>Post Property <span className="bg-warning p-1" style={{ borderRadius: "7px", fontSize: "8px"}}>FREE</span></Link></div>
                             <div className='col-md-4'>Flats in Bangalore</div>
                             <div className='col-md-4'>Under 50 Lac</div>
                           </div>
