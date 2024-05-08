@@ -30,7 +30,12 @@ const Signin = () => {
         if (result.data.token) {
           setAlertVisible(true);
           localStorage.setItem("token", result.data.token);
-          navigate("/Home");
+          const role = result.data.role; // Get the role from the response
+          if (role === "admin") {
+              navigate("/Admin"); // Redirect to adminHome if role is admin
+          } else {
+              navigate("/Home"); // Redirect to Home for other roles
+          }
         } else {
           setError("Invalid email or password. Please try again.");
         }

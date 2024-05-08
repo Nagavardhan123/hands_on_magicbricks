@@ -58,8 +58,8 @@ app.post("/login", (req, res) => {
                 }
                 if (result) {
                     // Generate JWT token
-                    const token = jwt.sign({ email: user.email }, JWT_SECRET_KEY);
-                    res.json({ token });
+                    const token = jwt.sign({ email: user.email, role: user.role }, JWT_SECRET_KEY);
+                    res.json({ token, role: user.role });
                 } else {
                     res.status(401).json("The password is incorrect");
                 }
@@ -72,7 +72,7 @@ app.post("/login", (req, res) => {
 });
 
 app.post("/register", upload.single("image"), (req, res) => {
-    const { email, password } = req.body;
+    const { email, password, role } = req.body;
     const image = req.file ? req.file.path : null; // Save image path if uploaded
     // Hash password using bcrypt
     bcrypt.hash(password, 10, (err, hash) => {
@@ -88,7 +88,7 @@ app.post("/register", upload.single("image"), (req, res) => {
                     return res.status(400).json("Email already exists");
                 } else {
                     // Create new customer entry with hashed password and Image path
-                    MagicModel.create({ email, password: hash, image })
+                    MagicModel.create({ email, password: hash, image, role })
                         .then(newCustomer => {
                             console.log("New customer registered:", newCustomer);
                             // Generate JWT token for the new customer
@@ -120,6 +120,18 @@ app.get("/profile", verifyToken, (req, res) => {
         })
         .catch(err => {
             console.error("Error fetching profile image:", err);
+            res.status(500).json("Internal Server Error");
+        });
+});
+
+app.get("/users", (req, res) => {
+    // Fetch only users with role "user"
+    MagicModel.find({ role: "user" })
+        .then(users => {
+            res.json(users);
+        })
+        .catch(err => {
+            console.error("Error fetching users:", err);
             res.status(500).json("Internal Server Error");
         });
 });

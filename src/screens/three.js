@@ -8,6 +8,7 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [image, setImage] = useState(null); // State to store the selected image file
+  const [role, setRole] = useState("user"); // State to track selected role
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -18,6 +19,7 @@ const Register = () => {
       formData.append("email", email);
       formData.append("password", password);
       formData.append("image", image); // Append image file to the form data
+      formData.append("role", role); // Append selected role to the form data
 
       const response = await axios.post("http://localhost:5001/register", formData, {
           headers: {
@@ -28,7 +30,11 @@ const Register = () => {
 
       if (response.data.token) {
           localStorage.setItem("token", response.data.token);
-          navigate("/Home");
+          if (role === "admin") {
+            navigate("/Admin"); // Redirect to adminHome if role is admin
+          } else {
+            navigate("/Home");
+          }
       } else {
           navigate("/signin");
       }
@@ -60,6 +66,15 @@ const Register = () => {
                     <p className="text-center h1 fw-bold mb-3 mx-1 mx-md-2 mt-2">Register</p>
                     {error && <div className="alert alert-danger" role="alert">{error}</div>}
                     <form className="mx-1 mx-md-4" onSubmit={handleSubmit}>
+                      <div className="mb-3">
+                        <label htmlFor="role" className="form-label">Select Role:</label>
+                        <div>
+                          <input type="radio" id="user" name="role" value="user" checked={role === "user"} onChange={() => setRole("user")} />
+                          <label htmlFor="user">User</label><br/>
+                          <input type="radio" id="admin" name="role" value="admin" checked={role === "admin"} onChange={() => setRole("admin")} />
+                          <label htmlFor="admin">Admin</label>
+                        </div>
+                      </div>
                       <div className="d-flex flex-row align-items-center mb-2">
                         <i className="fas fa-user fa-lg me-3 fa-fw"></i>
                       </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './screens/Home';
+import AdminHome from './screens/adminhome';
 import S1 from './components/property/property1';
 import S1_1 from './components/property/property1card1';
 import S1_2 from './components/property/property1card2';
@@ -34,15 +35,19 @@ import Card2 from './components/DSRcards/card2';
 import Owner from './screens/owner';
 // import Login1 from './screens/Login1';
 import Signin from './screens/four';
-import Register from './screens/three'
+import Register from './screens/three';
+import Users from './screens/users';
+import Cart from './screens/cart';
 
 function App() {
   return (
-    <Router>
       <Routes path="/">
         <Route index element={<Signin />} />
         <Route path='/register' element={<Register />} />
         <Route path='/Home' element={<Home />} />
+        <Route path='/Cart' element={<Cart />} />
+        <Route path='/users' element={<Users />} />
+        <Route path='/Admin' element={<AdminHome />} />
         <Route path='/Owner' element={<Owner />} />
         <Route path='/property1' element={<S1 />} />
         <Route path='/property1/property1card1' element={<S1_1 />} />
@@ -74,7 +79,6 @@ function App() {
         <Route path='/card1' element={<Card1 />} />
         <Route path='/card2' element={<Card2 />} />
       </Routes>
-    </Router>
   );
 }
 

@@ -1,11 +1,15 @@
 import { Link } from 'react-router-dom';
 import './navbar.css';
 import React, { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import axios from "axios";
+import { useCart } from '../screens/CartContent';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Navbar = () => {
+  const { state } = useCart();
   const [profileImage, setProfileImage] = useState('');
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -242,6 +246,10 @@ const Navbar = () => {
               <Link className="nav-link text-black" to="/" style={{display: "inline", opacity: 0.7}}> Post Property <span className="bg-warning" style={{ borderRadius: "1px", fontSize: "10px"}}>FREE</span> </Link>
             </div>
             <div>{profileImage && <img  className="profile-image" src={profileImage} alt="Profile" style={{borderRadius:"50%", height:"45px", width:"45px", marginRight: "50px"}} />}</div>
+            <Link className="nav-item nav-link"  to="/Cart">
+                        <FontAwesomeIcon  style={{paddingLeft:"0.5vw" }} icon={faShoppingCart} />
+                        <span className="badge bg-secondary">{state.items.length}</span>
+                    </Link>
           </div>
         </div>
       </nav>
@@ -463,8 +471,8 @@ const Navbar = () => {
                     Help
                   </button>
                   <div className="dropdown-menu" id="menu1" aria-labelledby="dropdownMenuButton">
-                    <a className="dropdown-item" href="#">Help Center</a>
-                    <a className="dropdown-item" href="#">Sales Enquiry</a>
+                    <a className="dropdown-item" href="/">Help Center</a>
+                    <a className="dropdown-item" href="/">Sales Enquiry</a>
                   </div>
                 </div>
               </div>

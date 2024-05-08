@@ -8,8 +8,14 @@ import body3 from '../images/body3.jpg';
 import body4 from '../images/body4.jpg';
 import MapsHomeWorkIcon from '@mui/icons-material/MapsHomeWork';
 import EmojiTransportationIcon from '@mui/icons-material/EmojiTransportation';
+import { useCart } from '../screens/CartContent';
 
 const CardSlider = () => {
+    const { addToCart } = useCart();
+
+    const handleAddToCart = ({body1}) => {
+        addToCart({body1});
+    };
   return (
     <Carousel interval={null} controls={true} indicators={true}>
       <Carousel.Item>
@@ -28,6 +34,7 @@ const CardSlider = () => {
                                 <p>2, 3 BHK Flats <br/>81.7 lac onwards</p>
                             </div>
                             <button className="btn btn-primary btt1" style={{width:"8vw", height:"2vw", fontSize: "12px"}}><Link to="/card1" >Click me &rarr;</Link></button>
+                            <button onClick={() => handleAddToCart({body1})} className="btn btn-secondary" style={{width:"6vw", height:"2vw", fontSize: "8px"}}>ADD TO CART</button>
                         </div>
                     </div>
                 </div>
