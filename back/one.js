@@ -4,6 +4,7 @@ const cors = require("cors");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const MagicModel = require('./two');
+const CardModel = require('./cardback');
 const multer = require("multer");
 const path = require("path");
 
@@ -135,6 +136,72 @@ app.get("/users", (req, res) => {
             res.status(500).json("Internal Server Error");
         });
 });
+
+app.post("/products", upload.fields([
+    { name: 'img1', maxCount: 1 },
+    { name: 'img2', maxCount: 1 },
+    { name: 'img3', maxCount: 1 },
+    { name: 'img4', maxCount: 1 }
+]), (req, res) => {
+    const { title, category, place, carpet_area, developers, project, floor, transaction_type, status, facing, lift, furnished } = req.body;
+    const images = {
+        img1: req.files['img1'][0].path,
+        img2: req.files['img2'][0].path,
+        img3: req.files['img3'][0].path,
+        img4: req.files['img4'][0].path
+    };
+
+    CardModel.create({ title, ...images, category, place, carpet_area, developers, project, floor, transaction_type, status, facing, lift, furnished })
+        .then(products => {
+            res.json(products);
+        })
+        .catch(err => {
+            console.error("Error creating product:", err);
+            res.status(500).json("Internal Server Error");
+        });
+});
+
+
+
+// Get all products
+app.get("/products", (req, res) => {
+    CardModel.find()
+        .then(products => {
+            res.json(products);
+        })
+        .catch(err => {
+            console.error("Error fetching products:", err);
+            res.status(500).json("Internal Server Error");
+        });
+});
+
+// Delete a product
+// app.delete("/products/:id", (req, res) => {
+//     const { id } = req.params;
+//     CardModel.findByIdAndDelete(id)
+//         .then(() => {
+//             res.json({ message: "Product deleted successfully" });
+//         })
+//         .catch(err => {
+//             console.error("Error deleting product:", err);
+//             res.status(500).json("Internal Server Error");
+//         });
+// });
+// Update a product
+// app.put("/products/:id", verifyToken, upload.single("image"), (req, res) => {
+//     const { id } = req.params;
+//     const { Category,para1,Para2,img1,img2,img3,img4,Para3,S1,Sp1,P1,S2,Sp2,S3,Sp3,Sp4,S4,Sp5,S5,Sp6,S6,Sp7,S7,Sp8,S8,Sp9,S9,l1,l2,contact } = req.body;
+//     const image = req.file ? req.file.path : null;
+
+//     CardModel.findByIdAndUpdate(id, { Category,para1,Para2,img1,img2,img3,img4,Para3,S1,Sp1,P1,S2,Sp2,S3,Sp3,Sp4,S4,Sp5,S5,Sp6,S6,Sp7,S7,Sp8,S8,Sp9,S9,l1,l2,contact }, { new: true })
+//         .then(updatedProduct => {
+//             res.json(updatedProduct);
+//         })
+//         .catch(err => {
+//             console.error("Error updating product:", err);
+//             res.status(500).json("Internal Server Error");
+//         });
+// });
 
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {

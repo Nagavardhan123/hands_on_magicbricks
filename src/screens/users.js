@@ -50,7 +50,6 @@ const Users = () => {
           </div>
         </div>
       </div>
-      <Footer/>
     </div>
   );
 };

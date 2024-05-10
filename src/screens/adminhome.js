@@ -17,7 +17,7 @@ const AdminHome = () => {
         <div className="container-fluid bg-white">
                 <AdminNavbar />
         </div>
-        <div className=" container-fluid">
+        <div className=" container-fluid mb-5">
             <div className="row">
                 <div className="col-md-3" style={{ overflowY: 'auto' }}>
                     <AdminSidebar onUserClick={handleUserClick} /> {/* Pass the click handler to the sidebar */}
@@ -28,7 +28,7 @@ const AdminHome = () => {
                 </div>
             </div>
         </div>    
-        <div className='container-fluid'>
+        <div className='container-fluid mt-3'>
             <Footer />
         </div>
         </>

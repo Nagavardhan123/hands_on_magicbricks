@@ -38,6 +38,8 @@ import Signin from './screens/four';
 import Register from './screens/three';
 import Users from './screens/users';
 import Cart from './screens/cart';
+import AddProduct from './screens/AddProduct';
+import ListProduct from './screens/ListProduct';
 
 function App() {
   return (
@@ -45,6 +47,8 @@ function App() {
         <Route index element={<Signin />} />
         <Route path='/register' element={<Register />} />
         <Route path='/Home' element={<Home />} />
+        <Route path='/ListProduct' element={<ListProduct />} />
+        <Route path='/AddProduct' element={<AddProduct />} />
         <Route path='/Cart' element={<Cart />} />
         <Route path='/users' element={<Users />} />
         <Route path='/Admin' element={<AdminHome />} />
