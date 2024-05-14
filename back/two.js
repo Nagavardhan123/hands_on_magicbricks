@@ -5,6 +5,8 @@ const MagicSchema = new mongoose.Schema({
     password: String,
     image: String,
     role: String,
+    resetPasswordToken: String, // Field to store the reset password token
+    resetPasswordExpires: Date // Field to store the expiration timestamp for the tokens
    
 });
 

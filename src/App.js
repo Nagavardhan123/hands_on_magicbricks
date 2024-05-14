@@ -34,6 +34,8 @@ import Card1 from './components/DSRcards/card1';
 import Card2 from './components/DSRcards/card2';
 import Owner from './screens/owner';
 // import Login1 from './screens/Login1';
+import ForgotPassword from './screens/ForgotPassword';
+import ResetPassword from './screens/Resetpassword';
 import Signin from './screens/four';
 import Register from './screens/three';
 import Users from './screens/users';
@@ -45,6 +47,8 @@ function App() {
   return (
       <Routes path="/">
         <Route index element={<Signin />} />
+        <Route path='/forgot-password' element={<ForgotPassword />} />
+        <Route path='/reset-password/:token' element={<ResetPassword />} />
         <Route path='/register' element={<Register />} />
         <Route path='/Home' element={<Home />} />
         <Route path='/ListProduct' element={<ListProduct />} />

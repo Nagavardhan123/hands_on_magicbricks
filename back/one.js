@@ -7,18 +7,32 @@ const MagicModel = require('./two');
 const CardModel = require('./cardback');
 const multer = require("multer");
 const path = require("path");
+const nodemailer = require("nodemailer");
+const bodyParser = require("body-parser");
+const { v4: uuidv4 } = require('uuid');
 
 const JWT_SECRET_KEY = "123456789";
 
 const app = express();
 app.use(express.json());
 app.use(cors());
+// Middleware
+app.use(bodyParser.json());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 mongoose.connect("mongodb://localhost:27017/users");
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
+
+// Nodemailer configuration
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'nagavardhanr11@gmail.com',
+      pass: 'mzeb kpgi rhrs knfm'
+    }
+  });
 
 // Middleware to verify JWT token
 const verifyToken = (req, res, next) => {
@@ -31,6 +45,7 @@ const verifyToken = (req, res, next) => {
         next();
     });
 };
+
 // Configure multer storage
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -81,127 +96,103 @@ app.post("/register", upload.single("image"), (req, res) => {
             console.error("Error hashing password:", err);
             return res.status(500).json("Internal Server Error");
         }
-        // Check if the email already exists in the database
-        MagicModel.findOne({ email })
-            .then(existingCustomer => {
-                if (existingCustomer) {
-                    // If email exists, return an error response
-                    return res.status(400).json("Email already exists");
-                } else {
-                    // Create new customer entry with hashed password and Image path
-                    MagicModel.create({ email, password: hash, image, role })
-                        .then(newCustomer => {
-                            console.log("New customer registered:", newCustomer);
-                            // Generate JWT token for the new customer
-                            const token = jwt.sign({ email: newCustomer.email }, JWT_SECRET_KEY);
-                            res.json({ token });
-                        })
-                        .catch(err => {
-                            console.error("Registration error:", err);
-                            res.status(500).json("Internal Server Error");
-                        });
-                }
+        // Create new user entry with hashed password and Image path
+        MagicModel.create({ email, password: hash, image, role })
+            .then(newUser => {
+                console.log("New user registered:", newUser);
+                // Generate JWT token for the new user
+                const token = jwt.sign({ email: newUser.email }, JWT_SECRET_KEY);
+                res.json({ token });
             })
             .catch(err => {
-                console.error("Error checking email existence:", err);
+                console.error("Registration error:", err);
                 res.status(500).json("Internal Server Error");
             });
     });
 });
-app.get("/profile", verifyToken, (req, res) => {
-    const userEmail = req.user.email;
-    MagicModel.findOne({ email: userEmail })
+
+// Forgot Password endpoint
+app.post('/forgot-password', (req, res) => {
+    const { email } = req.body;
+    MagicModel.findOne({ email })
         .then(user => {
             if (!user) {
-                return res.status(404).json("User not found");
+                return res.status(404).json({ error: "User not found" });
             }
-            // Construct the URL of the uploaded image
-            const imageUrl = user.image ? `${req.protocol}://${req.get("host")}/${user.image}` : null;
-            res.json({ image: imageUrl });
+            // Generate a unique token
+            const token = uuidv4();
+            // Save the token to the user document in the database
+            user.resetPasswordToken = token;
+            user.save()
+                .then(() => {
+                    // Send password reset email
+                    const mailOptions = {
+                        from: 'nagavardhanr11@gmail.com',
+                        to: email,
+                        subject: 'Password Reset',
+                        text: `To reset your password, click on the following link: http://localhost:5000/reset-password/${token}`
+                    };
+                    transporter.sendMail(mailOptions, (error, info) => {
+                        if (error) {
+                            console.error("Error sending email:", error);
+                            return res.status(500).json({ error: "Failed to send email" });
+                        }
+                        console.log('Email sent: ' + info.response);
+                        res.status(200).json({ message: "Password reset email sent successfully" });
+                    });
+                })
+                .catch(err => {
+                    console.error("Error saving token:", err);
+                    res.status(500).json({ error: "Internal Server Error" });
+                });
         })
         .catch(err => {
-            console.error("Error fetching profile image:", err);
-            res.status(500).json("Internal Server Error");
+            console.error("Error finding user:", err);
+            res.status(500).json({ error: "Internal Server Error" });
         });
 });
 
-app.get("/users", (req, res) => {
-    // Fetch only users with role "user"
-    MagicModel.find({ role: "user" })
-        .then(users => {
-            res.json(users);
+// Reset Password endpoint
+app.post("/reset-password/:token", (req, res) => {
+    const { token } = req.params; // Extract token from URL parameter
+    const { newPassword } = req.body;
+
+    // Find the user by resetPasswordToken
+    MagicModel.findOne({ resetPasswordToken: token })
+        .then(user => {
+            if (!user) {
+                return res.status(404).json({ error: "Invalid or expired token" });
+            }
+
+            // Hash the new password
+            bcrypt.hash(newPassword, 10)
+                .then(hash => {
+                    // Update user's password and resetPasswordToken
+                    user.password = hash;
+                    user.resetPasswordToken = undefined;
+                    
+                    // Save the updated user
+                    user.save()
+                        .then(() => {
+                            res.status(200).json({ message: "Password reset successfully" });
+                        })
+                        .catch(err => {
+                            console.error("Error saving new password:", err);
+                            res.status(500).json({ error: "Internal Server Error" });
+                        });
+                })
+                .catch(err => {
+                    console.error("Error hashing new password:", err);
+                    res.status(500).json({ error: "Internal Server Error" });
+                });
         })
         .catch(err => {
-            console.error("Error fetching users:", err);
-            res.status(500).json("Internal Server Error");
+            console.error("Error finding user:", err);
+            res.status(500).json({ error: "Internal Server Error" });
         });
 });
 
-app.post("/products", upload.fields([
-    { name: 'img1', maxCount: 1 },
-    { name: 'img2', maxCount: 1 },
-    { name: 'img3', maxCount: 1 },
-    { name: 'img4', maxCount: 1 }
-]), (req, res) => {
-    const { title, category, place, carpet_area, developers, project, floor, transaction_type, status, facing, lift, furnished } = req.body;
-    const images = {
-        img1: req.files['img1'][0].path,
-        img2: req.files['img2'][0].path,
-        img3: req.files['img3'][0].path,
-        img4: req.files['img4'][0].path
-    };
 
-    CardModel.create({ title, ...images, category, place, carpet_area, developers, project, floor, transaction_type, status, facing, lift, furnished })
-        .then(products => {
-            res.json(products);
-        })
-        .catch(err => {
-            console.error("Error creating product:", err);
-            res.status(500).json("Internal Server Error");
-        });
-});
-
-
-
-// Get all products
-app.get("/products", (req, res) => {
-    CardModel.find()
-        .then(products => {
-            res.json(products);
-        })
-        .catch(err => {
-            console.error("Error fetching products:", err);
-            res.status(500).json("Internal Server Error");
-        });
-});
-
-// Delete a product
-// app.delete("/products/:id", (req, res) => {
-//     const { id } = req.params;
-//     CardModel.findByIdAndDelete(id)
-//         .then(() => {
-//             res.json({ message: "Product deleted successfully" });
-//         })
-//         .catch(err => {
-//             console.error("Error deleting product:", err);
-//             res.status(500).json("Internal Server Error");
-//         });
-// });
-// Update a product
-// app.put("/products/:id", verifyToken, upload.single("image"), (req, res) => {
-//     const { id } = req.params;
-//     const { Category,para1,Para2,img1,img2,img3,img4,Para3,S1,Sp1,P1,S2,Sp2,S3,Sp3,Sp4,S4,Sp5,S5,Sp6,S6,Sp7,S7,Sp8,S8,Sp9,S9,l1,l2,contact } = req.body;
-//     const image = req.file ? req.file.path : null;
-
-//     CardModel.findByIdAndUpdate(id, { Category,para1,Para2,img1,img2,img3,img4,Para3,S1,Sp1,P1,S2,Sp2,S3,Sp3,Sp4,S4,Sp5,S5,Sp6,S6,Sp7,S7,Sp8,S8,Sp9,S9,l1,l2,contact }, { new: true })
-//         .then(updatedProduct => {
-//             res.json(updatedProduct);
-//         })
-//         .catch(err => {
-//             console.error("Error updating product:", err);
-//             res.status(500).json("Internal Server Error");
-//         });
-// });
 
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {

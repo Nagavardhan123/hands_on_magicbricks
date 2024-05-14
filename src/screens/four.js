@@ -76,6 +76,7 @@ const Signin = () => {
                       </div>
                     </form>
                     <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                      <p> Forgotten Password..? <Link to="/forgot-password"><button className="btn btn-danger btn-lg" type="submit">Restore</button></Link></p>
                       <p>Don't have an account? <Link to="/register"><button className="btn btn-primary btn-lg" type="submit">Sign up</button></Link></p>
                     </div>
                   </div>

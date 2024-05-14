@@ -3,7 +3,7 @@ import axios from 'axios';
 import AdminUserCard from '../components/usercard';
 import AdminNavbar from '../components/adminNavbar';
 import AdminSidebar from '../components/adminddSidebar';
-import Footer from '../components/Footer';
+// import Footer from '../components/Footer';
 
 
 const Users = () => {

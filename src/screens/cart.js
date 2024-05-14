@@ -1,24 +1,24 @@
 import React from 'react';
-import { useCart } from './CartContent';
+// import { useCart } from './CartContent';
 import './cart.css'; 
 import Navbar from '../components/NavBar';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 
 const Cart = () => {
-  const { state, removeFromCart } = useCart();
-  console.log('Cart Items:', state.items);
+  // const { state, removeFromCart } = useCart();
+  // console.log('Cart Items:', state.items);
 
-  const totalPrice = state.items.reduce((total, item) => {
-    const new_price = typeof item.new_price === 'number' ? item.new_price : 0;
-    return total + new_price;
-  }, 0);
+  // const totalPrice = state.items.reduce((total, item) => {
+  //   const new_price = typeof item.new_price === 'number' ? item.new_price : 0;
+  //   return total + new_price;
+  // }, 0);
 
 
   return (
     <div>
         <Navbar />
-    <div className="cart-container ">
+    {/* <div className="cart-container ">
       <h2 className="cart-heading">Cart</h2>
       <div className="cart-items-container">
         {state.items.length === 0 ? (
@@ -46,6 +46,9 @@ const Cart = () => {
       <Link to="/payment"> 
       <button className="checkout-button" >Proceed to Checkout</button>
       </Link>
+    </div> */}
+    <div className='container-fluid'>
+        <h3>Welcome to the Cart</h3>
     </div>
     <div className=' pt-5 mt-5'>
    <Footer />
