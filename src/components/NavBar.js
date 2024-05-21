@@ -184,7 +184,7 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="text-white d-flex align-items-center justify-content-left" style={{zIndex: 1}}>
-            <Link className="nav-link" to="/" style={{display: "inline"}}>
+            <Link className="nav-link" to="/Home" style={{display: "inline"}}>
               <div className="container">
                 <div className="dropdown">
                   <button className="btn btn-danger dropdown-toggle border-danger" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

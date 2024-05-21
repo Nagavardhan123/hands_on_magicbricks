@@ -30,6 +30,7 @@ import S3_5 from './components/property/property3card5';
 import S3_6 from './components/property/property3card6';
 import S3_7 from './components/property/property3card7';
 import S3_8 from './components/property/property3card8';
+import S4 from './components/property/property4';
 import Card1 from './components/DSRcards/card1';
 import Card2 from './components/DSRcards/card2';
 import Owner from './screens/owner';
@@ -84,6 +85,7 @@ function App() {
         <Route path='/property3/property3card6' element={<S3_6 />} />
         <Route path='/property3/property3card7' element={<S3_7 />} />
         <Route path='/property3/property3card8' element={<S3_8 />} />
+        <Route path='/property4' element={<S4 />} />
         <Route path='/card1' element={<Card1 />} />
         <Route path='/card2' element={<Card2 />} />
       </Routes>

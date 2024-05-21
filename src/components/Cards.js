@@ -49,7 +49,7 @@ const Cards = () => {
                 <div class="overlay-content text-with-shadow">
                   <p>1262</p>
                   <p>26709 Owner Properties</p>
-                  <a href="/" >Explore &rarr;</a>
+                  <a href="/property4" >Explore &rarr;</a>
                 </div>
             </div>
         </div>

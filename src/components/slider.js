@@ -51,6 +51,7 @@ const CardSlider = () => {
                                 <p>2, 3 BHK Flats <br/>81.7 lac onwards</p>
                             </div> 
                             <button className="btn btn-primary btt" style={{width:"8vw", height:"2vw", fontSize: "12px"}}><Link to="/card2" >Click me &rarr;</Link></button>
+                            <button onClick={() => handleAddToCart({body1})} className="btn btn-secondary" style={{width:"6vw", height:"2vw", fontSize: "8px"}}>ADD TO CART</button>
                         </div>
                     </div>
                 </div>
@@ -72,7 +73,8 @@ const CardSlider = () => {
                             <div>
                                 <p>2, 3 BHK Flats <br/>81.7 lac onwards</p>
                             </div>
-                            <button className="btn btn-primary btt1" style={{width:"8vw", height:"2vw", fontSize: "12px"}}>Click me &rarr;</button>
+                            <button className="btn btn-primary btt1" style={{width:"8vw", height:"2vw", fontSize: "12px"}}><Link to="/card1" >Click me &rarr;</Link></button>
+                            <button onClick={() => handleAddToCart({body1})} className="btn btn-secondary" style={{width:"6vw", height:"2vw", fontSize: "8px"}}>ADD TO CART</button>
                         </div>
                     </div>
                 </div>
@@ -88,7 +90,8 @@ const CardSlider = () => {
                             <div>
                                 <p>2, 3 BHK Flats <br/>81.7 lac onwards</p>
                             </div> 
-                            <button className="btn btn-primary btt" style={{width:"8vw", height:"2vw", fontSize: "12px"}}>Click me &rarr;</button>
+                            <button className="btn btn-primary btt" style={{width:"8vw", height:"2vw", fontSize: "12px"}}><Link to="/card1" >Click me &rarr;</Link></button>
+                            <button onClick={() => handleAddToCart({body1})} className="btn btn-secondary" style={{width:"6vw", height:"2vw", fontSize: "8px"}}>ADD TO CART</button>
                         </div>
                     </div>
                 </div>

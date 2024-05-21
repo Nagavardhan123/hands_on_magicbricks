@@ -32,7 +32,7 @@ function S3() {
                     <div class="overlay-content text-with-shadow">
                       <p>CHOICE 1</p>
                       <p>Medahalli</p>
-                      <Link to="/property3/property3card1" >click me &rarr;</Link>
+                      <Link to="/property1/property1card1" >click me &rarr;</Link>
                     </div>
                   </div>
                 </div>
@@ -42,7 +42,7 @@ function S3() {
                     <div class="overlay-content text-with-shadow">
                       <p>CHOICE 2</p>
                       <p>Whitefield</p>
-                      <Link to="/property3/property3card2" >click me &rarr;</Link>
+                      <Link to="/property1/property1card2" >click me &rarr;</Link>
                     </div>
                   </div>
                 </div>
@@ -52,7 +52,7 @@ function S3() {
                       <div class="overlay-content text-with-shadow">
                         <p>CHOICE 3</p>
                         <p>Marathahalli</p>
-                        <Link to="/property3/property3card3" >click me &rarr;</Link>
+                        <Link to="/property2/property2card1" >click me &rarr;</Link>
                       </div>
                     </div>
                 </div>
@@ -62,7 +62,7 @@ function S3() {
                         <div class="overlay-content text-with-shadow">
                           <p>CHOICE 4</p>
                           <p>Deepanjali Nagar</p>
-                          <Link to="/property3/property3card4" >click me &rarr;</Link>
+                          <Link to="/property1/property1card1" >click me &rarr;</Link>
                       </div>
                     </div>
                 </div>
@@ -76,7 +76,7 @@ function S3() {
                     <div class="overlay-content text-with-shadow">
                         <p>CHOICE 5</p>
                         <p>R T Nagara</p>
-                        <Link to="/property3/property3card5" >click me &rarr;</Link>
+                        <Link to="/property1/property1card2" >click me &rarr;</Link>
                       </div>
                   </div>
                 </div>
@@ -86,7 +86,7 @@ function S3() {
                         <div class="overlay-content text-with-shadow">
                         <p>CHOICE 6</p>
                         <p>Vijaya Nagara</p>
-                        <Link to="/property3/property3card6" >click me &rarr;</Link>
+                        <Link to="/property2/property2card1" >click me &rarr;</Link>
                       </div>
                     </div>
                 </div>
@@ -96,7 +96,7 @@ function S3() {
                         <div class="overlay-content text-with-shadow">
                         <p>CHOICE 7</p>
                         <p>Hebbala</p>
-                        <Link to="/property3/property3card7" >click me &rarr;</Link>
+                        <Link to="/property1/property1card1" >click me &rarr;</Link>
                       </div>
                     </div>
                 </div>
@@ -106,7 +106,7 @@ function S3() {
                         <div class="overlay-content text-with-shadow">
                         <p>CHOICE 8</p>
                         <p>Nelamangalam</p>
-                        <Link to="/property3/property3card8" >click me &rarr;</Link>
+                        <Link to="/property1/property1card2" >click me &rarr;</Link>
                       </div>
                     </div>
                 </div>

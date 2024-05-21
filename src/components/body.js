@@ -29,7 +29,7 @@ const Boody = () => {
             </div>
             <div className="row mb-3">
                 <h4 className="col-md-10">Popular Owner Properties</h4>
-                <h6 className="col-md-2 text-danger d-flex align-items-center justify-content-center">See all Projects &rarr;</h6>
+                <h6 className="col-md-2 text-danger d-flex align-items-center justify-content-center"><Link to="/property1"  className="text-danger">See all Projects &rarr;</Link></h6>
             </div>
             <div className="row d-flex justify-content-center align-items-center mb-5">
                 <div className="container-fluid">
@@ -75,7 +75,7 @@ const Boody = () => {
                                 <PopupVideo videoUrl="https://www.youtube.com/embed/8zI_g-iZ4jQ" />
                             </div>
                             <div className="col-md-6 video-container d-flex justify-content-center align-items-center">
-                                <PopupVideo videoUrl="https://www.youtube.com/embed/VIDEO_ID_2" />
+                                <PopupVideo videoUrl="https://www.youtube.com/embed/CHeAvdmm5fI" />
                             </div>
                         </div>
                         <div className="row mb-4 p-3">
@@ -119,24 +119,30 @@ const Boody = () => {
                         <h4 className="row d-flex justify-content-center align-items-center">Legal Updates</h4>
                         <div className="row p-2">
                             <div className="col-md-4">
-                                <iframe
+                                {/* <iframe
                                 style={{width: "7vw", height: "4vw", borderRadius: "2vw"}}
                                 title="Video 1"
-                                src="https://www.youtube.com/embed/VIDEO_ID_1"
+                                src="https://www.youtube.com/embed/CHeAvdmm5fI"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                ></iframe>
+                                ></iframe> */}
+                                <div className="col-md-6 video-container d-flex justify-content-center align-items-center" style={{width:"7vw"}}>
+                                <PopupVideo videoUrl="https://www.youtube.com/embed/CHeAvdmm5fI" />
+                                </div>
                             </div>
                             <div className="col-md-8">Inheritance Laws in INDIA: All you need to Know</div>
                         </div>
                         <div className="row p-2"><hr/></div>
                         <div className="row p-2">
                             <div className="col-md-4">
-                                <iframe
+                                {/* <iframe
                                 style={{width: "7vw", height: "4vw", borderRadius: "2vw"}}
                                 title="Video 1"
-                                src="https://www.youtube.com/embed/VIDEO_ID_1"
+                                src="https://www.youtube.com/embed/xNskOyPqX0M"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                ></iframe>
+                                ></iframe> */}
+                                <div className="col-md-6 video-container d-flex justify-content-center align-items-center" style={{width:"7vw"}}>
+                                <PopupVideo videoUrl="https://www.youtube.com/embed/xNskOyPqX0M" />
+                                </div>
                             </div>
                             <div className="col-md-8">Pay BBMP Property TAX online @nagavardhanr11@gmail.com </div>
                         </div>

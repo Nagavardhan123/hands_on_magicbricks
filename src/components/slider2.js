@@ -3,6 +3,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Slider from "react-slick";
+import { Link } from 'react-router-dom';
 import pop1 from '../images/pop1.jpg';
 import pop2 from '../images/pop2.jpg';
 import pop3 from '../images/pop3.jpg';
@@ -33,7 +34,7 @@ const CardSlider2 = () => {
                 <div className="row">1.25 Cr | 1435 Sqft</div>
                 <div className="row" style={{fontSize:"10px"}}>Thumbara Halli, white field, bangalore</div>
                 <div className="row" style={{fontSize:"12px"}}>Ready to Move</div>
-                <button className="btn btn-danger btt1" style={{width:"6vw", height:"2vw", fontSize: "12px", top:"5vw"}}>Click me &rarr;</button>
+                <button className="btn btn-danger btt1" style={{width:"6vw", height:"2vw", fontSize: "12px", top:"5vw"}}><Link to='/property1/property1card2'>Click me &rarr;</Link></button>
             </div>
         </div>
         <div className="card zoom-in-image img-fluid p-3 border border-white" style={{height:"13vw"}}>
@@ -43,7 +44,7 @@ const CardSlider2 = () => {
                 <div className="row">77 Lac | 935 Sqft</div>
                 <div className="row" style={{fontSize:"10px"}}>Medahalli, K R Puram, bangalore</div>
                 <div className="row" style={{fontSize:"12px"}}>Ready to Move</div>
-                <button className="btn btn-danger btt" style={{width:"6vw", height:"2vw", fontSize: "12px", top:"5vw"}}>Click me &rarr;</button>
+                <button className="btn btn-danger btt" style={{width:"6vw", height:"2vw", fontSize: "12px", top:"5vw"}}><Link to='/property2/property2card1'>Click me &rarr;</Link></button>
             </div>
         </div>
         <div className="card zoom-in-image img-fluid p-3 border border-white" style={{height:"13vw"}}>
@@ -53,7 +54,7 @@ const CardSlider2 = () => {
                 <div className="row">55 LAc | 875 Sqft</div>
                 <div className="row" style={{fontSize:"10px"}}>Nalluralli, white field, bangalore</div>
                 <div className="row" style={{fontSize:"12px"}}>Ready to Move</div>
-                <button className="btn btn-danger btt" style={{width:"6vw", height:"2vw", fontSize: "12px", top:"5vw"}}>Click me &rarr;</button>
+                <button className="btn btn-danger btt" style={{width:"6vw", height:"2vw", fontSize: "12px", top:"5vw"}}><Link to='/property1/property1card1'>Click me &rarr;</Link></button>
             </div>
         </div>
         <div className="card zoom-in-image img-fluid p-3 border border-white" style={{height:"13vw"}}>
@@ -63,7 +64,7 @@ const CardSlider2 = () => {
                 <div className="row">2.25 Cr | 1935 Sqft</div>
                 <div className="row" style={{fontSize:"10px"}}>Koramangala, bangalore</div>
                 <div className="row" style={{fontSize:"12px"}}>Ready to Move</div>
-                <button className="btn btn-danger btt" style={{width:"6vw", height:"2vw", fontSize: "12px", top:"4.5vw"}}>Click me &rarr;</button>
+                <button className="btn btn-danger btt" style={{width:"6vw", height:"2vw", fontSize: "12px", top:"4.5vw"}}><Link to='/property2/property2card1'>Click me &rarr;</Link></button>
             </div>
         </div>
         <div className="card zoom-in-image img-fluid p-3 border border-white" style={{height:"13vw"}}>
@@ -73,7 +74,7 @@ const CardSlider2 = () => {
                 <div className="row">1.25 Cr | 1435 Sqft</div>
                 <div className="row" style={{fontSize:"10px"}}>Thumbara Halli, white field, bangalore</div>
                 <div className="row" style={{fontSize:"12px"}}>Ready to Move</div>
-                <button className="btn btn-danger btt1" style={{width:"6vw", height:"2vw", fontSize: "12px", top:"5vw"}}>Click me &rarr;</button>
+                <button className="btn btn-danger btt1" style={{width:"6vw", height:"2vw", fontSize: "12px", top:"5vw"}}><Link to='/property1/property1card2'>Click me &rarr;</Link></button>
             </div>
         </div>
         <div className="card zoom-in-image img-fluid p-3 border border-white" style={{height:"13vw"}}>
@@ -83,7 +84,7 @@ const CardSlider2 = () => {
                 <div className="row">77 Lac | 935 Sqft</div>
                 <div className="row" style={{fontSize:"10px"}}>Medahalli, K R Puram, bangalore</div>
                 <div className="row" style={{fontSize:"12px"}}>Ready to Move</div>
-                <button className="btn btn-danger btt" style={{width:"6vw", height:"2vw", fontSize: "12px", top:"5vw"}}>Click me &rarr;</button>
+                <button className="btn btn-danger btt" style={{width:"6vw", height:"2vw", fontSize: "12px", top:"5vw"}}><Link to='/property2/property2card1'>Click me &rarr;</Link></button>
             </div>
         </div>
         <div className="card zoom-in-image img-fluid p-3 border border-white" style={{height:"13vw"}}>
@@ -93,7 +94,7 @@ const CardSlider2 = () => {
                 <div className="row">55 LAc | 875 Sqft</div>
                 <div className="row" style={{fontSize:"10px"}}>Nalluralli, white field, bangalore</div>
                 <div className="row" style={{fontSize:"12px"}}>Ready to Move</div>
-                <button className="btn btn-danger btt" style={{width:"6vw", height:"2vw", fontSize: "12px", top:"5vw"}}>Click me &rarr;</button>
+                <button className="btn btn-danger btt" style={{width:"6vw", height:"2vw", fontSize: "12px", top:"5vw"}}><Link to='/property1/property1card2'>Click me &rarr;</Link></button>
             </div>
         </div>
         <div className="card zoom-in-image img-fluid p-3 border border-white" style={{height:"13vw"}}>
@@ -103,7 +104,7 @@ const CardSlider2 = () => {
                 <div className="row">2.25 Cr | 1935 Sqft</div>
                 <div className="row" style={{fontSize:"10px"}}>Koramangala, bangalore</div>
                 <div className="row" style={{fontSize:"12px"}}>Ready to Move</div>
-                <button className="btn btn-danger btt" style={{width:"6vw", height:"2vw", fontSize: "12px", top:"4.5vw"}}>Click me &rarr;</button>
+                <button className="btn btn-danger btt" style={{width:"6vw", height:"2vw", fontSize: "12px", top:"4.5vw"}}><Link to='/property1/property1card1'>Click me &rarr;</Link></button>
             </div>
         </div>
       </Slider>

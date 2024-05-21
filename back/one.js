@@ -192,7 +192,34 @@ app.post("/reset-password/:token", (req, res) => {
         });
 });
 
+app.get("/users", (req, res) => {
+    // Fetch only users with role "user"
+    MagicModel.find({ role: "user" })
+        .then(users => {
+            res.json(users);
+        })
+        .catch(err => {
+            console.error("Error fetching users:", err);
+            res.status(500).json("Internal Server Error");
+        });
+});
 
+app.get("/profile", verifyToken, (req, res) => {
+    const userEmail = req.user.email;
+    MagicModel.findOne({ email: userEmail })
+        .then(user => {
+            if (!user) {
+                return res.status(404).json("User not found");
+            }
+            // Construct the URL of the uploaded image
+            const imageUrl = user.image ? `${req.protocol}://${req.get("host")}/${user.image}` : null;
+            res.json({ image: imageUrl });
+        })
+        .catch(err => {
+            console.error("Error fetching profile image:", err);
+            res.status(500).json("Internal Server Error");
+        });
+});
 
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
